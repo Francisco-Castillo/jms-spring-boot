@@ -25,7 +25,10 @@ Para compilar:
 ```mvn clean install```
 
 Para ejecutar:
-``` java -jar /ubicacion/proyecto/target/jms-spring-boot.jar```
+
+``` 
+java -jar /ubicacion/proyecto/target/jms-spring-boot.jar
+```
 
 ## Pruebas desde Postman :rocket:
 
@@ -35,7 +38,7 @@ POST http://localhost:8080/producer/send
 ```
 Json de ejemplo:
 
-```
+```json
 {
     "id":1,
     "name": "name",
@@ -44,7 +47,7 @@ Json de ejemplo:
 ```
 Si el mensaje pudo ser enviado, el servicio responde:
 
-```
+```json
 {
     "message": "Mensaje enviado exitosamente"
 }
@@ -56,7 +59,7 @@ GET http://localhost:8080/consumer
 ```
 Si el mensaje pudo ser procesado correctamente, el servicio responde:
 
-```
+```json
 {
     "id": 1,
     "name": "name",
