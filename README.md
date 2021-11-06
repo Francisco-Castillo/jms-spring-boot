@@ -18,7 +18,7 @@ Accedemos al panel de administración introduciendo en la barra de direcciones `
 
 Para clonar:
 
-```git clone ```
+```git clone https://github.com/Francisco-Castillo/jms-spring-boot.git```
 
 Para compilar:
 
