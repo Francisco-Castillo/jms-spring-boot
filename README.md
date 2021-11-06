@@ -1,5 +1,7 @@
 # jms-spring-boot
 
+Ejemplo de envio y recepción de mensajes mediante ActiveMQ.
+
 ## Requisitos :clipboard:
 
 Es necesario contar con el siguiente software instalado en la pc.
