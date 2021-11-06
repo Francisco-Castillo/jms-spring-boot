@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @Slf4j
-public class ProducerService {
+public class ConsumerService {
 
   @Autowired
   private Queue queue;
@@ -26,25 +26,17 @@ public class ProducerService {
   @Autowired
   private JmsTemplate jmsTemplate;
 
-  public ResponseEntity<Object> send(PetDTO pet) {
+  public ResponseEntity<Object> consume() {
     Map<String, Object> response = new HashMap<>();
     try {
-
-      ObjectMapper objectMapper = new ObjectMapper();
-
-      // Convertir a String
-      String sPet = objectMapper.writeValueAsString(pet);
-
-      jmsTemplate.convertAndSend(queue, sPet);
-
-      response.put("message", "Mensaje enviado exitosamente");
-
-      return new ResponseEntity<>(response, HttpStatus.CREATED);
+      PetDTO pet = new ObjectMapper()
+              .readValue((String) jmsTemplate.receiveAndConvert(queue), PetDTO.class);
+      return new ResponseEntity<>(pet, HttpStatus.OK);
     } catch (Exception e) {
-      String msg = "Ocurrio un error al enviar mensaje. Excepcion: " + e.getLocalizedMessage();
+      String msg = "Ocurrio un error al consumir mensaje. " + e.getLocalizedMessage();
       log.error(msg);
-      response.put("message", msg);
-      return new ResponseEntity<>(msg, HttpStatus.INTERNAL_SERVER_ERROR);
+      return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
+
 }
