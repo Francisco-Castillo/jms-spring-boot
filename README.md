@@ -1,6 +1,6 @@
 # jms-spring-boot
 
-## Requisitos
+## Requisitos :clipboard:
 
 Es necesario contar con el siguiente software instalado en la pc.
  * [Apache ActiveMQ](https://activemq.apache.org/components/classic/download/)
