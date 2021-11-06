@@ -1,5 +1,34 @@
 # jms-spring-boot
 
+## Requisitos
+
+Es necesario contar con el siguiente software instalado en la pc.
+ * [Apache ActiveMQ](https://activemq.apache.org/components/classic/download/)
+
+### Ejecutar Apache ActiveMQ
+
+Una vez finalizada la descarga, se debe descomprimir el archivo. Nos ubicamos en el directorio /bin y ejecutamos el siguiente comando (en linux):
+
+```
+sudo sh activemq start
+```
+Accedemos al panel de administración introduciendo en la barra de direcciones ```http://localhost:8161/```. Nos solicitara las credenciales (usuario: admin y password: admin)
+
+### Clonar, compilar y ejecutar proyecto :wrench:
+
+Para clonar:
+
+```git clone ```
+
+Para compilar:
+
+```mvn clean install```
+
+Para ejecutar:
+``` java -jar /ubicacion/proyecto/target/jms-spring-boot.jar```
+
+## Pruebas desde Postman :rocket:
+
 ### Enviar mensaje
 ```
 POST http://localhost:8080/producer/send
